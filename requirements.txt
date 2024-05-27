@@ -1,0 +1,4 @@
+flask==3.0.1
+google-api-python-client
+gunicorn
+waitress # For production deployment on Windows
