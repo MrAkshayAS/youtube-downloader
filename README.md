@@ -31,10 +31,10 @@ python -m venv venv
 ```
 ### 2. Install Dependencies
 ```bash
-Flask==2.0.2
-google-api-python-client==2.35.3
-pytube3==11.0.2
-waitress==2.1.0   # For production deployment on Windows
+flask==3.0.1
+google-api-python-client
+gunicorn
+waitress # For production deployment on Windows
 ```
 
 ### 3. API Keys
