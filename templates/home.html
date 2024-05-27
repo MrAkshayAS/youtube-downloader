@@ -1,0 +1,43 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Playlist Downloader</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    {% include 'partials/_header.html' %}
+    <div class="container mx-auto px-4 mt-8 min-h-screen">
+        <form method="POST" action="/">
+            <label for="playlist_url" class="block text-sm font-medium text-gray-700">YouTube Playlist URL</label>
+            <input type="text" name="playlist_url" id="playlist_url" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required>
+            <button type="submit" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md">Fetch Playlist Info</button>
+        </form>
+        {% if playlist_info %}
+            <div class="mt-8">
+                <h2 class="text-xl font-bold">{{ playlist_info.title }}</h2>
+                <p>Total Videos: {{ playlist_info.total_videos }}</p>
+                <ul>
+                    {% for video in playlist_info.videos %}
+                        <li>
+                            {{ video.title }}
+                            <form method="POST" action="/download/{{ video.id }}">
+                                <select name="quality" class="ml-2 px-4 py-2 bg-white text-gray-800 border-gray-300 rounded-md">
+                                    {% for option in video.quality_options %}
+                                        <option value="{{ option.itag }}">{{ option.resolution }}</option>
+                                    {% endfor %}
+                                </select>
+                                <button type="submit" class="ml-2 px-4 py-2 bg-green-500 text-white rounded-md">Download</button>
+                            </form>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+        {% endif %}
+    </div>
+    {% include 'partials/_footer.html' %}
+</body>
+</html>

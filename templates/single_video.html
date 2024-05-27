@@ -1,0 +1,21 @@
+<!-- single_video.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YT Video Download</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    {% include 'partials/_header.html' %}
+    <div class="container mx-auto px-4 mt-8 min-h-screen">
+        <form method="POST" action="/single_video">
+            <label for="video_url" class="block text-sm font-medium text-gray-700">YouTube Video URL</label>
+            <input type="text" name="video_url" id="video_url" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required>
+            <button type="submit" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md">Download Video</button>
+        </form>
+    </div>
+    {% include 'partials/_footer.html' %}
+</body>
+</html>
