@@ -12,8 +12,8 @@ project-root/
 │   ├── partials
 │   │  ├── _header.html
 │   │  └── _footer.html
-│   ├── home.html
-│   └── single_video.html
+│   ├── home.html # For Playlist Download 
+│   └── single_video.html # Single Video Download
 │
 ├── app.py
 ├── requirements.txt
