@@ -36,8 +36,12 @@ google-api-python-client
 gunicorn
 waitress # For production deployment on Windows
 ```
-
-### 3. API Keys
+### 3.Install Dependencies
+Install the required Python packages using pip and the requirements.txt file.
+```bash
+pip install -r requirements.txt
+```
+### 4. API Keys
 Ensure you have a Google API key with YouTube Data API v3 enabled. Set it as an environment variable:
 #### For Windows
 ```bash
